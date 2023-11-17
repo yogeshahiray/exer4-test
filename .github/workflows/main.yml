@@ -1,19 +1,20 @@
-name: build
+name: buildfork
 on:
   workflow_dispatch:
+
   
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
+    steps: 
       - uses: actions/checkout@v3
       - name: Cache
         uses: actions/cache@v3.0.8
         with:
-          path: ~/.npm
+          path: ~/,npm
           key: buildCache
       - run: npm ci
-      - run: npm test -- --coverage
+      - run: npm test --coverage
         env:
           CI: true
       - name: Upload code coverage
@@ -28,3 +29,6 @@ jobs:
         with:
           name: build
           path: build
+        
+    
+  
