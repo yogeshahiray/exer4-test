@@ -14,7 +14,7 @@ jobs:
           path: ~/,npm
           key: buildCache
       - run: npm ci
-      - run: npm test --coverage
+      - run: npm test -- --coverage
         env:
           CI: true
       - name: Upload code coverage
